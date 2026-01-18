@@ -4,13 +4,13 @@ const USE_CSS_CLASS: bool = true;
 
 #[derive(PartialEq)]
 pub enum IconType {
-    DOWNLOAD,
+    Download,
 }
 
 impl IconType {
     fn class_name(&self) -> &'static str {
         match self {
-            Self::DOWNLOAD => "nf nf-fa-heart",
+            Self::Download => "nf nf-fa-heart",
         }
     }
 }
@@ -21,7 +21,7 @@ impl std::fmt::Display for IconType {
             f,
             "{}",
             match self {
-                Self::DOWNLOAD => "󱑢",
+                Self::Download => "󱑢",
             }
         )
     }

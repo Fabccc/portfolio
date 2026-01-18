@@ -1,7 +1,5 @@
-use std::ops::Div;
-
 use leptos::prelude::*;
-use leptos_use::use_interval_fn;use chrono::{DateTime, Datelike, Local, Months, NaiveDate};
+use leptos_use::use_interval_fn;use chrono::{DateTime, Datelike, Local};
 
 const DATE_FORMAT: &str = "%d/%m/%Y | %H:%M:%S";
 const DATE_BIRTH: &str = "22-07-2000 21:19:15.000 +2000";
@@ -39,7 +37,7 @@ pub fn Bottombar() -> impl IntoView {
                 <span>{current_time}</span>
             </div>
             <div>
-                <span title="Yes, it's written in Rust">"FABIENCAYRE-CLI-RS "{cli_version}</span>
+                <span title="Oui, c'est écrit en Rust!">"FABIENCAYRE-CLI-RS "{cli_version}</span>
             </div>
         </div>
     }

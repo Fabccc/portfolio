@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use reactive_stores::Store;
 
 mod bottombar;
 mod highlighter;
@@ -6,8 +7,12 @@ mod icon;
 mod maincontent;
 mod menubar;
 mod sidebar;
+mod state;
 
-use crate::{bottombar::Bottombar, maincontent::MainContent, menubar::Menubar, sidebar::Sidebar};
+use crate::{
+    bottombar::Bottombar, maincontent::MainContent, menubar::Menubar, sidebar::Sidebar,
+    state::State,
+};
 
 fn main() {
     console_error_panic_hook::set_once();
@@ -16,17 +21,21 @@ fn main() {
 
 #[component]
 pub fn App() -> impl IntoView {
+
+    provide_context(Store::new(State::default()));
+
+
     view! {
-        <div class="flex flex-col h-full w-full p-3 m-0">
+        <div class="flex flex-col h-screen w-full p-3 m-0">
             <div class="flex flex-row border-b  border-b-zinc-700">
                 <Menubar />
             </div>
-            <div class="flex flex-col h-full">
-                <div class="h-full flex flex-row">
+            <div class="flex flex-col min-h-0 h-full grow">
+                <div class=" flex flex-row min-h-0 h-full grow">
                     <MainContent />
                     <Sidebar />
                 </div>
-                <div class="basis-0 border-t pt-3 border-t-zinc-700">
+                <div class="basis-0 border-t py-3 border-t-zinc-700">
                     <Bottombar/>
                 </div>
             </div>

@@ -28,7 +28,7 @@ pub fn Menubar() -> impl IntoView {
         <div class="flex flex-row justify-between w-full items-center">
             <div class="flex flex-row gap-x-8 w-full items-center">
                 <MenuItem title="Fichier"/>
-                <MenuItem title="CV" leading_icon=IconType::DOWNLOAD/>
+                <MenuItem title="CV" leading_icon=IconType::Download/>
             </div>
             <div>
                 <pre class="leading-5">
@@ -52,7 +52,7 @@ pub fn MenuItem(
     #[prop(optional)] tailing_icon: Option<IconType>,
 ) -> impl IntoView {
     view! {
-        <span class="text-4xl hover:bg-blue-700 hover:cursor-pointer">
+        <span class="text-4xl hover:bg-green-500 hover:cursor-pointer">
 
             {leading_icon.map(move |icont| {
                 view! {<Icon icon_type=icont/>}

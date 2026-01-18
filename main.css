@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwind-scrollbar";
 
 @font-face {
   font-family: "IBM Plex Mono NerdFont";
@@ -8,13 +9,14 @@
 
 @import "https://www.nerdfonts.com/assets/css/webfont.css";
 
-html, 
-body {
-    height: 100%;
-}
-
 body {
   font-family: "IBM Plex Mono NerdFont", "Consolas", monospace;
   font-weight: 400;
   font-style: normal;
+}
+
+.code-scrollbar {
+  scrollbar-color: var(--color-green-500) transparent;
+  scrollbar-width: thin;
+  scroll-snap-type: y proximity;
 }
