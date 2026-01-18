@@ -24,3 +24,11 @@ D'avoir une sorte de VIM en mode terminal, d'avoir des ressources kubernetes en 
 - [Leptos Cookbook](https://book.leptos.dev/)
 - [Rust Cookbook]
 - [Rust Cookbook datetime](https://rust-lang-nursery.github.io/rust-cookbook/datetime.html)
+
+
+## Special thanks
+
+- [K9S](https://github.com/derailed/k9s)
+- [Leptos](https://github.com/leptos-rs/leptos)
+- [Antigravity](https://antigravity.google/), pour m'avoir aidé dans les moments difficile (`map FnOnce exists, but it's method trait bound were not satisfied`)
+- [Kai Lentit](https://www.youtube.com/watch?v=TGfQu0bQTKc)

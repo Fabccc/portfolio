@@ -8,10 +8,11 @@ mod maincontent;
 mod menubar;
 mod sidebar;
 mod state;
+mod hook;
 
 use crate::{
     bottombar::Bottombar, maincontent::MainContent, menubar::Menubar, sidebar::Sidebar,
-    state::cluster::ClusterState,
+    state::{cluster::ClusterState, editor::EditorState},
 };
 
 fn main() {
@@ -23,6 +24,7 @@ fn main() {
 pub fn App() -> impl IntoView {
 
     provide_context(Store::new(ClusterState::default()));
+    provide_context(Store::new(EditorState::default()));
 
 
     view! {
