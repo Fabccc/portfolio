@@ -3,7 +3,7 @@ use leptos::prelude::*;
 use leptos_use::use_interval_fn;
 use reactive_stores::Store;
 
-use crate::state::{State, StateView};
+use crate::state::cluster::{ClusterState, ClusterStateView};
 
 
 #[component]
@@ -12,7 +12,7 @@ pub fn Sidebar() -> impl IntoView {
     const CONTROL_NODE_COUNT: i32 = 3;
     const DATA_NODE_COUNT: i32 = 6;
 
-    let state = expect_context::<Store<State>>();
+    let state = expect_context::<Store<ClusterState>>();
 
     use_interval_fn(move || {
         state.write().next_tick();
@@ -43,7 +43,7 @@ pub fn Sidebar() -> impl IntoView {
             <div class="flex flex-col">
                 <h1 class="text-center text-xl">"Usage"</h1>
                 <div class="grid grid-rows-3 grid-cols-1 justify-center-safe">
-                    <StateView store=state/>
+                    <ClusterStateView cluster_state=state/>
                 </div>
             </div>
             <div class="pt-8 text-xs">

@@ -5,7 +5,6 @@ use crate::icon::{Icon, IconType};
 
 #[component]
 pub fn Menubar() -> impl IntoView {
-
     let text = r#".----..--.  .----. .-..----..-. .-.    .---.   .--..-.  .-..----. .----.
 | {_ / {} \ | {}  }| || {_  |  `| |   /  ___} / {} \\ \/ / | {}  }| {_  
 | | /  /\  \| {}  }| || {__ | |\  |   \     }/  /\  \}  {  | .-. \| {__ 
@@ -25,13 +24,15 @@ pub fn Menubar() -> impl IntoView {
     let is_phone = use_media_query("(max-width: 680px)");
 
     view! {
-        <div class="flex flex-row justify-between w-full items-center">
+        <div class="flex flex-row justify-between w-full items-center px-3">
             <div class="flex flex-row gap-x-8 w-full items-center">
-                <MenuItem title="Fichier"/>
                 <MenuItem title="CV" leading_icon=IconType::Download/>
+                <MenuItem title="LinkedIN"/>
+                <MenuItem title="Github"/>
+                <MenuItem title="Gitlab"/>
             </div>
             <div>
-                <pre class="leading-5">
+                <pre class="leading-4">
                     {move || if is_phone.get() {
                         text_xs
                     } else if is_tablet.get() {
@@ -52,7 +53,7 @@ pub fn MenuItem(
     #[prop(optional)] tailing_icon: Option<IconType>,
 ) -> impl IntoView {
     view! {
-        <span class="text-4xl hover:bg-green-500 hover:cursor-pointer">
+        <span class="text-2xl hover:bg-green-500 hover:cursor-pointer">
 
             {leading_icon.map(move |icont| {
                 view! {<Icon icon_type=icont/>}

@@ -32,7 +32,7 @@ pub fn Bottombar() -> impl IntoView {
     );
 
     view!{
-        <div class="flex flex-row space-x-4 justify-between w-full items-center">
+        <div class="flex flex-row space-x-4 justify-between w-full items-center px-3">
             <div class="flex flex-row gap-x-4 items-center">
                 <span>{current_time}</span>
             </div>

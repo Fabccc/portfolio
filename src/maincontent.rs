@@ -1,5 +1,7 @@
 use leptos::prelude::*;
 
+use crate::state::editor::EditorNav;
+
 // Idée:
 // - portfolio
 // - mon player musique Rump
@@ -62,13 +64,7 @@ spec:
 "#;
     view! {
         <div class="w-full flex flex-col h-full">
-            <div class="flex flex-row border-b border-b-zinc-700 border-l border-l-zinc-700">
-                <span class="py-2 px-4 mr-3 border-r border-r-zinc-700 bg-zinc-700">"main.yaml ✕"</span>
-                <span class="py-2 px-4 mr-3 ">"on-premise.yaml"</span>
-                <span class="py-2 px-4 mr-3 ">"my-homelab.yaml"</span>
-                <span class="py-2 px-4 mr-3 ">"otomny.yaml"</span>
-                <span class="py-2 px-4 mr-3 ">"certs.tf"</span>
-            </div>
+            <EditorNav/>
             <div
               class="pl-3 pt-3 grow min-h-0
                      code-scrollbar overflow-y-scroll">
@@ -79,7 +75,3 @@ spec:
         </div>
     }
 }
-
-// <div class="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-slate-700 scrollbar-track-slate-300 h-32 overflow-y-scroll">
-//     <div class="h-64 bg-slate-400"></div>
-// </div>

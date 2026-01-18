@@ -11,7 +11,7 @@ mod state;
 
 use crate::{
     bottombar::Bottombar, maincontent::MainContent, menubar::Menubar, sidebar::Sidebar,
-    state::State,
+    state::cluster::ClusterState,
 };
 
 fn main() {
@@ -22,11 +22,11 @@ fn main() {
 #[component]
 pub fn App() -> impl IntoView {
 
-    provide_context(Store::new(State::default()));
+    provide_context(Store::new(ClusterState::default()));
 
 
     view! {
-        <div class="flex flex-col h-screen w-full p-3 m-0">
+        <div class="flex flex-col h-screen w-full m-0">
             <div class="flex flex-row border-b  border-b-zinc-700">
                 <Menubar />
             </div>

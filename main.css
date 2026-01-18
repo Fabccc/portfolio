@@ -15,6 +15,10 @@ body {
   font-style: normal;
 }
 
+@theme {
+  --font-display: "IBM Plex Mono NerdFont", "Consolas", monospace;
+}
+
 .code-scrollbar {
   scrollbar-color: var(--color-green-500) transparent;
   scrollbar-width: thin;
