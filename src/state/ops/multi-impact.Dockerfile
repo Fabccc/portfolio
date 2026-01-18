@@ -6,6 +6,9 @@ LABEL fr.multi-impact.job.manager="Kevin MAYET <kevin.mayet@multi-impact.com>"
 LABEL fr.multi-impact.job.title="Ingénieur DevOps"
 LABEL org.opencontainers.image.authors="Fabien CAYRE <fabiencayre81@gmail.com>"
 
+# TODO: faire une brève explication, point de vue business de tout ce que j'ai pu améliorer dans l'entreprise.
+# ex: améliorer la valeur par développeur, augmentation du rythme de déploiement, monitoring des goldens metrics
+
 FROM gitlab:18.7 AS cicd-server
 # Gitlab en tant que serveur CI/CD et registre pour les images d'applications
 # Utilisation des CI/CD components introduit en 17.0 (GA) pour simplifier et versionner
