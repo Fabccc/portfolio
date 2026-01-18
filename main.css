@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "IBM Plex Mono NerdFont";
+  font-family: face;
+  src: url("./assets/BlexMonoNerdFont-Regular.ttf");
+}
+
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+html, 
+body {
+    height: 100%;
+}
+
+body {
+  font-family: "IBM Plex Mono NerdFont", "Consolas", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
