@@ -1,1 +1,38 @@
-# Ansible
+- name: "Système auto-hébergé via matériel recyclé"
+  hosts: server-lan
+  comment: |-
+    J'épouvre une certaine adhésion au mouvement "self-hosted", à savoir l'auto-hébergement d'outils open source.
+    Savoir que mes données et mes documents critique ne quittent pas mon lieu de vie me satisfait, surtout avec la vague d'IA
+    que le monde connaît, les conditions d'utilisations des services gratuits ne lésigne pas sur l'utilisation des documents
+    personnels pour l'entrainement de modèles IA souvant payant. 
+  vars:
+    os: "debian"
+    version: "trixie"
+    local-dns-resolver: "unbound"
+  tasks:
+    - name: "Mise en place debian"
+      comment: |-
+        J'ai remplacé mon ordinateur en 2025 et je voulais vraiment me mettre en place un petit serveur en local.
+        Je me voyais mal de le jeter, et j'avais certains besoin en terme d'auto-hébergement.
+        Avec ce serveur en place, je peux mettre des logiciels open source et me détacher de l'enprise des GAFAM, notamment sur les documents administratifs
+    - name: "Logiciels fondamentaux"
+      comment: |-
+        Avec un i7 8700, une RTX 1070Ti et 32Go de RAM, je peux faire tourner pas mal de systèmes intéressants. La carte graphique, bien que vieille,
+        est intéressante pour faire tourner des petits modèles d'AI en local, ou bien faire du decodage vidéo.
+        Wg-easy m'a permis de setup un tunnel vpn gratuitement pour accéder a mes documents de n'importe ou, sans ouvrir une porte accessible à Internet.
+        Vaultwarden est un incontournable selon moi, bitwarden permet d'utiliser un service auto-hébergé pour la gestion de mot de passe, et en voyant la quantité
+        de fuites (https://bonjourlafuite.eu.org/ rien que pour la France)
+      block:
+        - name: "Installation paquet"
+          ansible.builtin.apt:
+            name:
+              - nginx
+              - ufw
+              - fail2ban
+              - "{{ local-dns-resolver }}"
+              - docker
+              - gitea
+              - n8n
+              - ollama
+              - wireguard
+              - vaultwarden

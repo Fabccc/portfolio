@@ -958,6 +958,7 @@ dependencies = [
  "chrono",
  "console_error_panic_hook",
  "fastrand",
+ "itertools",
  "leptos",
  "leptos-use",
  "num",

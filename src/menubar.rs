@@ -27,9 +27,8 @@ pub fn Menubar() -> impl IntoView {
         <div class="flex flex-row justify-between w-full items-center px-3">
             <div class="flex flex-row gap-x-8 w-full items-center">
                 <MenuItem title="CV" leading_icon=IconType::Download/>
-                <MenuItem title="LinkedIN"/>
-                <MenuItem title="Github"/>
-                <MenuItem title="Gitlab"/>
+                <MenuItem title="LinkedIN" url="https://www.linkedin.com/in/fabien-cayre/"/>
+                <MenuItem title="Github" url="https://github.com/Fabccc"/>
             </div>
             <div>
                 <pre class="leading-4">
@@ -51,17 +50,31 @@ pub fn MenuItem(
     title: &'static str,
     #[prop(optional)] leading_icon: Option<IconType>,
     #[prop(optional)] tailing_icon: Option<IconType>,
+    #[prop(optional)] url: Option<&'static str>
 ) -> impl IntoView {
-    view! {
-        <span class="text-2xl hover:bg-green-500 hover:cursor-pointer">
-
-            {leading_icon.map(move |icont| {
+    let content = 
+    view!{
+        {leading_icon.map(move |icont| {
                 view! {<Icon icon_type=icont/>}
-            })}
-            {title}
-            {tailing_icon.map(move |icont| {
-                view! {<Icon icon_type=icont/>}
-            })}
-        </span>
+        })}
+        {title}
+        {tailing_icon.map(move |icont| {
+            view! {<Icon icon_type=icont/>}
+        })}
+    };
+    if let Some(urllink) = url {
+        view!{
+            <a href=urllink class="text-2xl hover:bg-green-500 ">
+                {content}
+            </a>
+        }.into_any()
+    }else{
+        view!{
+            <span class="text-2xl hover:bg-green-500 hover:cursor-pointer">
+                {content}
+            </span>
+        }.into_any()
     }
+    
+    
 }

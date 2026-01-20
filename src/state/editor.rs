@@ -1,6 +1,8 @@
 use leptos::{logging::log, prelude::*};
 use reactive_stores::Store;
 
+use crate::highlighter::{CodeBlock, language::Lang};
+
 #[derive(Store, Debug, Clone)]
 pub struct EditorState {
     active_editor: String,
@@ -12,6 +14,7 @@ pub struct EditorState {
 struct EditorEntry {
     key: String,
     file_content: &'static str,
+    lang: Option<Lang>
 }
 
 impl Default for EditorState {
@@ -22,22 +25,27 @@ impl Default for EditorState {
                 EditorEntry {
                     key: "main.yaml".to_string(),
                     file_content: include_str!("ops/main.yaml"),
+                    lang: Some(Lang::Yaml),
                 },
                 EditorEntry {
                     key: "multi-impact.Dockerfile".to_string(),
                     file_content: include_str!("ops/multi-impact.Dockerfile"),
-                },
-                EditorEntry {
-                    key: "otomny.tf".to_string(),
-                    file_content: include_str!("ops/otomny.tf"),
+                    lang: Some(Lang::Dockerfile),
                 },
                 EditorEntry {
                     key: "self-hosted.yaml".to_string(),
                     file_content: include_str!("ops/self-hosted.yaml"),
+                    lang: Some(Lang::Yaml),
                 },
                 EditorEntry {
                     key: "contributions.sh".to_string(),
                     file_content: include_str!("ops/contributions.sh"),
+                    lang: Some(Lang::Shell),
+                },
+                EditorEntry {
+                    key: "otomny.tf".to_string(),
+                    file_content: include_str!("ops/otomny.tf"),
+                    lang: None,
                 },
             ],
         }
@@ -49,14 +57,12 @@ pub fn EditorNav() -> impl IntoView {
     let editor_state: Store<EditorState> = expect_context::<Store<EditorState>>();
     let active_editor = editor_state.active_editor();
     let set_active = SignalSetter::map(move |v| {
-        log!("Update value");
         active_editor.set(v);
     });
 
     let tab_panes = move || {
         editor_state.editors()
         .into_iter().map(move |editor_entry| {
-            log!("RENDER TAB PANES");
             view! { <TabPane file_name=editor_entry.key() active_file=active_editor set_active=set_active /> }
         })
         .collect::<Vec<_>>()
@@ -79,7 +85,15 @@ pub fn EditorContent() -> impl IntoView {
             .into_iter()
             .find(|i| i.clone().key().get() == active_editor.get())
             .map(|val| {
-                view! { <pre>{val.clone().file_content()}</pre> }
+                let val_file_content= val.clone().file_content();
+                let val_lang = val.clone().lang();
+                let val_file_content_string = Signal::derive(move || val_file_content.get().to_string());
+                if val_lang.read().is_some() {
+                    let val_lang= Signal::derive(move || val_lang.get().unwrap());
+                    view! { <CodeBlock lang=val_lang content=val_file_content_string /> }.into_any()
+                }else{
+                    view! { <pre>{val.file_content()}</pre> }.into_any()
+                }
             })
     }
 }

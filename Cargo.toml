@@ -4,11 +4,21 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-chrono = "0.4.43"
+chrono = { version = "0.4.43", features = ["wasmbind"]}
 console_error_panic_hook = "0.1.7"
 fastrand = "2.3.0"
+itertools = "0.14.0"
 leptos = { version = "0.8.15", features = ["csr"] }
 leptos-use = "0.18.0"
 num = "0.4.3"
 reactive_stores = "0.3.1"
 utf16string = "0.2.0"
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
+
+[package.metadata.leptos]
+lib-profile-release = "wasm-release"

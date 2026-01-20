@@ -50,19 +50,6 @@ pub fn Sidebar() -> impl IntoView {
                     <ClusterStateView cluster_state=state />
                 </div>
             </div>
-            <div class="pt-8 text-xs">
-                <h1 class="text-xl text-center">"Map"</h1>
-                <table class="w-full table-auto">
-                    <thead>
-                        <tr>
-                            <th scope="col">"Node"</th>
-                            <th scope="col">"IP"</th>
-                            <th scope="col">"Pods"</th>
-                        </tr>
-                    </thead>
-                    <tbody>{control_nodes} {data_nodes}</tbody>
-                </table>
-            </div>
             <div class="pt-4 mt-4 text-xs border-t border-t-zinc-700">
                 <h1 class="text-xl text-center">"Mes préocupations"</h1>
                 <ul>

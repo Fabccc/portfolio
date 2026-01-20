@@ -3,15 +3,18 @@ use reactive_stores::Store;
 
 mod bottombar;
 mod highlighter;
+mod hook;
 mod icon;
 mod maincontent;
 mod menubar;
 mod sidebar;
 mod state;
-mod hook;
 
 use crate::{
-    bottombar::Bottombar, maincontent::MainContent, menubar::Menubar, sidebar::Sidebar,
+    bottombar::Bottombar,
+    maincontent::MainContent,
+    menubar::Menubar,
+    sidebar::Sidebar,
     state::{cluster::ClusterState, editor::EditorState},
 };
 
@@ -22,10 +25,8 @@ fn main() {
 
 #[component]
 pub fn App() -> impl IntoView {
-
     provide_context(Store::new(ClusterState::default()));
     provide_context(Store::new(EditorState::default()));
-
 
     view! {
         <div class="flex flex-col h-screen w-full m-0">

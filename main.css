@@ -24,3 +24,47 @@ body {
   scrollbar-width: thin;
   scroll-snap-type: y proximity;
 }
+
+
+.w-1{
+  width: 0.5rem;
+}
+
+.w-2{
+  width: 1rem;
+}
+
+.w-3{
+  width: 1.5rem;
+}
+
+.w-4{
+  width: 2rem;
+}
+
+.w-5{
+  width: 2.5rem;
+}
+
+.w-6{
+  width: 3rem;
+}
+
+.w-7{
+  width: 3.5rem;
+}
+.w-8{
+  width: 4rem;
+}
+.w-9{
+  width: 4.5rem;
+}
+.w-10{
+  width: 5rem;
+}
+.w-12{
+  width: 6.5rem;
+}
+.w-14{
+  width: 7rem;
+}

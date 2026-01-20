@@ -13,6 +13,12 @@ Le terminal se comporte de 4 panels:
   - En haut l'utilisation CPU/RAM
   - En bas l'explorateur de ressources K8S
 
+## Choix
+
+- CSR car pas besoin de serveur, même en bundlant le tout on reste < 200ko
+- Servi en Http3
+- pas de crate `regex`, car augmente la taille du binaire.
+
 ## Idée
 
 D'avoir une sorte de VIM en mode terminal, d'avoir des ressources kubernetes en mode yaml, et de devoir les déployer sur un [K9S](https://github.com/derailed/k9s) (le cli de k8s) afin de voir le contenu du projet en question. C'est ça ma vision.
@@ -25,10 +31,9 @@ D'avoir une sorte de VIM en mode terminal, d'avoir des ressources kubernetes en 
 - [Rust Cookbook]
 - [Rust Cookbook datetime](https://rust-lang-nursery.github.io/rust-cookbook/datetime.html)
 
-
 ## Special thanks
 
 - [K9S](https://github.com/derailed/k9s)
 - [Leptos](https://github.com/leptos-rs/leptos)
-- [Antigravity](https://antigravity.google/), pour m'avoir aidé dans les moments difficile (`map FnOnce exists, but it's method trait bound were not satisfied`)
+- [Antigravity](https://antigravity.google/), pour m'avoir aidé dans les moments difficile (`map ... exists, but it's method trait bound were not satisfied`)
 - [Kai Lentit](https://www.youtube.com/watch?v=TGfQu0bQTKc)
