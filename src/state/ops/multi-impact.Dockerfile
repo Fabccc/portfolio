@@ -12,7 +12,7 @@ LABEL fr.multi-impact.job.manager="Kevin MAYET kevin.mayet@multi-impact.com"
 # > Toutes ces avancées ont permis d'augmenter la productivité des gestionnaires, en mesurant les KPI clés directement via les outils d'observabilité.
 
 # J'essaye de trouver les outils les plus adaptés, qui nécessitent le moins de changement au niveau de la couche logicielle
-# J'ai découvert le 12factor app au début de mon CDI (https://12factor.net/fr/) et j'y ai adhéré.
+# J'ai découvert le 12factor app au début de mon CDI ( https://12factor.net/fr/ ) et j'y ai adhéré.
 
 FROM gitlab:18.7 AS cicd-server
 # Gitlab en tant que serveur CI/CD et registre pour les images d'applications

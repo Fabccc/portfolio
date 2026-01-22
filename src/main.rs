@@ -3,7 +3,6 @@ use reactive_stores::Store;
 
 mod bottombar;
 mod highlighter;
-mod hook;
 mod icon;
 mod maincontent;
 mod menubar;

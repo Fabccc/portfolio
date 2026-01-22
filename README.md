@@ -19,9 +19,13 @@ Le terminal se comporte de 4 panels:
 - Servi en Http3
 - pas de crate `regex`, car augmente la taille du binaire.
 
-## Idée
+## Installation
 
-D'avoir une sorte de VIM en mode terminal, d'avoir des ressources kubernetes en mode yaml, et de devoir les déployer sur un [K9S](https://github.com/derailed/k9s) (le cli de k8s) afin de voir le contenu du projet en question. C'est ça ma vision.
+```shell
+cargo install trunk
+trunk build --release
+miniserve dist/ --index "index.html" -p 8080
+```
 
 
 ## Doc

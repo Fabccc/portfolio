@@ -8,6 +8,7 @@ pub mod language;
 pub mod yaml;
 pub mod dockerfile;
 pub mod shell;
+pub mod lexer;
 
 
 pub trait HighlighterContext {}

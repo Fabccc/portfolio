@@ -25,10 +25,10 @@ impl Highlighter for DockerfileHighlighter {
         let mut current_index: usize = 0;
         let mut indent_count = 0;
         let mut indent_consumed = false;
-        let mut comment = vec![];
         let mut is_comment = false;
         let mut stringquote = vec![];
         let mut is_stringquote: bool = false;
+        let mut last_color = DEFAULT_COLOR;
         let keywords = ["FROM", "RUN", "CMD", "ENV", "LABEL", "AS", "ADD", "COPY"];
 
         while current_index < tokenized_string_length {
@@ -40,7 +40,7 @@ impl Highlighter for DockerfileHighlighter {
             }
             if token == "\n" {
                 if is_comment {
-                    res.push(format!("<span class=\"{}\">{}</span>", COMMENT_COLOR, comment.join(" ")));
+                    res.push("</span>".to_string());
                 }
                 res.push("<br>".to_string());
                 indent_count = 0;
@@ -48,24 +48,31 @@ impl Highlighter for DockerfileHighlighter {
                 is_comment = false;
                 is_stringquote = false;
                 stringquote.clear();
-                comment.clear();
-            }else if token.starts_with("http:"){
-                
+            }else if token.starts_with("http:") || token.starts_with("https:"){
+                if last_color == KEY_COLOR{
+                    last_color = DEFAULT_COLOR;
+                }
+                let val = format!("<a href=\"{token}\" class=\"{} underline\">{token}</a>", last_color);
+                if is_comment {
+                    res.push(format!("</span>{val}<span class=\"{}\">", COMMENT_COLOR));
+                } else {
+                    res.push(val);
+                }
             }else if is_comment {
-                comment.push(token);
+                res.push(token.to_string());
             }else if token.is_empty() && !indent_consumed {
                 // tabulation size;
                 indent_count += 1;
             }else if token.starts_with("#") {
                 is_comment = true;
-                comment.push(token);
+                res.push(format!("<span class=\"{COMMENT_COLOR}\">{token}"));
+                last_color = COMMENT_COLOR;
             }else if is_stringquote && !token.contains("\"") {
                 stringquote.push(token);
                 stringquote.push(" ");
             }else if token.contains("\"") {
                 // String case
                 let total_quotes = token.chars().filter(|b| *b == '\"').count();
-                log!("Total quote for '{}' is {total_quotes}", token);
                 if token.starts_with("\"") && token.ends_with("\"") && token.len() > 1{
                     // token is quoted, push directly and skip
                     res.push(format!("<span class=\"{}\">{}</span>", STRING_COLOR, token));
@@ -110,8 +117,10 @@ impl Highlighter for DockerfileHighlighter {
                     res.push(format!("<hr class=\"{SPLITTER_COLOR} {}\">", "border-t-0.5"));
                 }
                 res.push(format!("<span class=\"{}\">{}</span>", KEY_COLOR, token));
+                last_color = KEY_COLOR;
             }else{
                 res.push(format!("<span class=\"{}\">{}</span>", DEFAULT_COLOR, token));
+                last_color = DEFAULT_COLOR;
             }
             
             current_index += 1
