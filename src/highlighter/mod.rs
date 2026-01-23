@@ -4,14 +4,10 @@ use itertools::Itertools;
 
 use crate::highlighter::{dockerfile::DockerfileHighlighter, language::Lang, shell::ShellHighlighter, yaml::YamlHighlighter};
 
-pub mod language;
 pub mod yaml;
 pub mod dockerfile;
 pub mod shell;
-pub mod lexer;
-
-
-pub trait HighlighterContext {}
+pub mod language;
 
 pub trait Highlighter {
 
@@ -27,7 +23,6 @@ pub fn CodeBlock(
         #[prop()]
         content: Signal<String>
     ) -> impl IntoView {
-    let lang_cloned = lang.clone();
     let highlighter = move || find_highlighter(lang.get());
     let content = move || {
         let start = Local::now().time();

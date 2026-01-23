@@ -1,12 +1,7 @@
-use crate::highlighter::{Highlighter, HighlighterContext};
+use crate::highlighter::{Highlighter};
 use itertools::Itertools;
 
-#[derive(Default)]
 pub struct ShellHighlighterContext {}
-
-impl HighlighterContext for ShellHighlighterContext {
-    
-}
 
 pub struct ShellHighlighter {}
 
@@ -46,7 +41,7 @@ impl Highlighter for ShellHighlighter {
                 is_comment = false;
                 is_stringquote = false;
                 stringquote.clear();
-            }else if token.starts_with("http:") || token.starts_with("https:"){
+            }else if token.starts_with("http://") || token.starts_with("https://"){
                 if last_color == KEY_COLOR{
                     last_color = DEFAULT_COLOR;
                 }

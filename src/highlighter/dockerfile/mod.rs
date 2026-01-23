@@ -1,14 +1,5 @@
-use crate::highlighter::{Highlighter, HighlighterContext};
+use crate::highlighter::{Highlighter};
 use itertools::Itertools;
-use leptos::logging::log;
-
-#[derive(Default)]
-pub struct DockerfileHighlighterContext {}
-
-impl HighlighterContext for DockerfileHighlighterContext {
-    
-}
-
 pub struct DockerfileHighlighter {}
 
 const KEY_COLOR: &str = "text-blue-300";
@@ -48,7 +39,7 @@ impl Highlighter for DockerfileHighlighter {
                 is_comment = false;
                 is_stringquote = false;
                 stringquote.clear();
-            }else if token.starts_with("http:") || token.starts_with("https:"){
+            }else if token.starts_with("http://") || token.starts_with("https://"){
                 if last_color == KEY_COLOR{
                     last_color = DEFAULT_COLOR;
                 }
