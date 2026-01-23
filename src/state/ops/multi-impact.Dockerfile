@@ -7,12 +7,11 @@ LABEL fr.multi-impact.sector="Courtier en assurance emprunteur"
 LABEL fr.multi-impact.job.manager="Kevin MAYET kevin.mayet@multi-impact.com"
 # Mon but était principalement de reprendre et d'améliorer l'architecture existante, mais j'ai proposer d'aller plus loins.
 # En résuidant la durée de déploiement, nous avons pu améliorer la vélocité des équipes, et délivrer plus de features.
-# En fusionnant les anciens outils éparpillés, nous avons pu augmenter la disponibilité de notre plateforme, pour ne pas bloquer nos clients.
+# En fusionnant les anciens outils éparpillés, nous avons pu augmenter la disponibilité de notre plateforme, pour ne pas bloquer nos utilisateurs.
 # En monitorant les métriques clées, nous avons réussi à localiser le bottleneck des applications.
-# > Toutes ces avancées ont permis d'augmenter la productivité des gestionnaires, en mesurant les KPI clés directement via les outils d'observabilité.
+# > Toutes ces avancées ont permis d'augmenter la productivité des gestionnaires, en mesurant les KPI clés directement via les outils d'observabilité,
+# > mais également d'économiser certaines licenses pour basculer sur des outils open source.
 
-# J'essaye de trouver les outils les plus adaptés, qui nécessitent le moins de changement au niveau de la couche logicielle
-# J'ai découvert le 12factor app au début de mon CDI ( https://12factor.net/fr/ ) et j'y ai adhéré.
 
 FROM gitlab:18.7 AS cicd-server
 # Gitlab en tant que serveur CI/CD et registre pour les images d'applications
