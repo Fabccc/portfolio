@@ -41,8 +41,6 @@ impl Highlighter for YamlHighlighter {
             }else if token.is_empty() && !indent_consumed {
                 // tabulation size;
                 indent_count += 1;
-            }else if is_comment {
-                res.push(token.to_string());
             }else if token.starts_with("http://") || token.starts_with("https://"){
                 if last_color == KEY_COLOR{
                     last_color = DEFAULT_COLOR;
@@ -53,6 +51,8 @@ impl Highlighter for YamlHighlighter {
                 } else {
                     res.push(val);
                 }
+            }else if is_comment {
+                res.push(token.to_string());
             }else if token.starts_with("#") {
                 is_comment = true;
                 res.push(format!("<span class=\"{COMMENT_COLOR}\">{token}"));
