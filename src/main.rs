@@ -14,7 +14,7 @@ use crate::{
     maincontent::MainContent,
     menubar::Menubar,
     sidebar::Sidebar,
-    state::{cluster::ClusterState, editor::EditorState},
+    state::{cluster::ClusterState, editor::EditorState, technology::TechnologyState},
 };
 
 fn main() {
@@ -26,6 +26,7 @@ fn main() {
 pub fn App() -> impl IntoView {
     provide_context(Store::new(ClusterState::default()));
     provide_context(Store::new(EditorState::default()));
+    provide_context(Store::new(TechnologyState::default()));
 
     view! {
         <div class="flex flex-col h-screen w-full m-0">

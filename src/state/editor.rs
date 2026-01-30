@@ -62,7 +62,8 @@ pub fn EditorNav() -> impl IntoView {
 
     let tab_panes = move || {
         editor_state.editors()
-        .into_iter().map(move |editor_entry| {
+        .into_iter()
+        .map(move |editor_entry| {
             view! { <TabPane file_name=editor_entry.key() active_file=active_editor set_active=set_active /> }
         })
         .collect::<Vec<_>>()

@@ -7,9 +7,11 @@ edition = "2024"
 chrono = { version = "0.4.43", features = ["wasmbind"]}
 console_error_panic_hook = "0.1.7"
 fastrand = "2.3.0"
+icondata = "0.7.0"
 itertools = "0.14.0"
 leptos = { version = "0.8.15", features = ["csr"] }
 leptos-use = "0.18.0"
+leptos_icons = "0.7.1"
 num = "0.4.3"
 reactive_stores = "0.3.1"
 utf16string = "0.2.0"

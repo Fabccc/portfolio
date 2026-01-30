@@ -39,5 +39,7 @@ miniserve dist/ --index "index.html" -p 8080
 
 - [K9S](https://github.com/derailed/k9s)
 - [Leptos](https://github.com/leptos-rs/leptos)
+- [Leptos Use](https://leptos-use.rs/)
+- [Leptos Icons](https://github.com/carloskiki/leptos-icons)
 - [Antigravity](https://antigravity.google/), pour m'avoir aidé dans les moments difficile (`map ... exists, but it's method trait bound were not satisfied`)
 - [Kai Lentit](https://www.youtube.com/watch?v=TGfQu0bQTKc)
