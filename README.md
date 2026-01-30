@@ -1,6 +1,6 @@
 # Portfolio
 
-Mon portfolio en Rust avec WebAssembly via leptos dans un Style terminal. 
+Mon portfolio en Rust avec WebAssembly via leptos dans un Style terminal. parce que.
 La doc est géniale d'ailleurs.
 
 ## Structure
@@ -27,19 +27,19 @@ trunk build --release
 miniserve dist/ --index "index.html" -p 8080
 ```
 
-
 ## Doc
 
 - [Nerd Font Icons Search](https://www.nerdfonts.com/cheat-sheet)
 - [Leptos Cookbook](https://book.leptos.dev/)
-- [Rust Cookbook]
 - [Rust Cookbook datetime](https://rust-lang-nursery.github.io/rust-cookbook/datetime.html)
+- [Rust Cookbook]
 
 ## Special thanks
 
-- [K9S](https://github.com/derailed/k9s)
 - [Leptos](https://github.com/leptos-rs/leptos)
 - [Leptos Use](https://leptos-use.rs/)
 - [Leptos Icons](https://github.com/carloskiki/leptos-icons)
-- [Antigravity](https://antigravity.google/), pour m'avoir aidé dans les moments difficile (`map ... exists, but it's method trait bound were not satisfied`)
+- [K9S](https://github.com/derailed/k9s)
 - [Kai Lentit](https://www.youtube.com/watch?v=TGfQu0bQTKc)
+- [Archlinux](https://archlinux.org/)
+- [Antigravity](https://antigravity.google/), pour m'avoir aidé dans les moments difficile (`map ... exists, but it's method trait bound were not satisfied`)

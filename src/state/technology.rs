@@ -27,13 +27,29 @@ C'est un outil plutôt polyvalent mais plutôt couteux à utiliser, je ne pense 
             TechnologyEntry::new("grafana", r#"Grafana est l'outil central à mettre en place pour visualiser rapidement une large quantité de source de données.
 Le fait de ne pas avoir 15 sites pour visualiser les données de 20 services est un énorme plus.
 Il est également très simple à mettre en place, et propose des fonctionnalités d'entreprise dans la version OSS"#, SiGrafana),
-            TechnologyEntry::new("flux", "", SiFlux),
-            TechnologyEntry::new("gitlab", "", SiGitlab),
-            TechnologyEntry::new("cilium", "", SiCilium),
-            TechnologyEntry::new("rancher", "", SiRancher),
-            TechnologyEntry::new("sentry", "", SiSentry),
-            TechnologyEntry::new("ansible", "", SiAnsible),
-            TechnologyEntry::new("harbor", "", SiHarbor),
+            TechnologyEntry::new("flux", r#"Ma démarche en tant que DevOps est d'appliquer certains principes du développement
+dans l'infrastructure. FluxCD est un bon outil pour synchroniser des ressources Kubernetes d'un dépôt git dans un cluster.
+La gestion d'upgrade/downgrade devient quasi automatique."#, SiFlux),
+            TechnologyEntry::new("gitlab", r#"La référence open source de la forge logicielle, je le considère même plus puissant que Github.
+La version opensource permet de faire énormement de choses. Je m'en sers pour maintenir les pipelines de linting, de tests, de déploiement via les CICD components.
+Je teste même les composants eux mêmes via les pipelines. Un bon processus CI/CD de bout en bout renforce la stabilité des applicatifs."#, SiGitlab),
+            TechnologyEntry::new("cilium", r#"C'est THE interface de réseau pour conteneur. Avec son intégration eBPF, il pulvérise tous les records de performances,
+assurant une forte isolation des conteneurs, tout en maximisant le traffic réseau. De la couche 4 à la couche 7 du modèle OSI,
+il peut tout filtrer au préalable via ses CRDs de type Network Policies. Je suis entrain de l'étudier pour en faire notre
+Gateway API ainsi que notre Service Mesh"#, SiCilium),
+            TechnologyEntry::new("rancher", r#"Les CSR sont un lointain souvenir pour moi. La centralisation qu'offre Rancher pour
+la gestion des utilisateurs, des clusters, des rôles ainsi que des mises à jours est adapté lorsqu'on gère plusieurs clusters avec des équipes de développeurs."#, SiRancher),
+            TechnologyEntry::new("sentry", r#"Présent à mon arrivé, j'ai renforcé l'utilisation du Sentry dans les applications avec
+le tracing distribués, le session replay ainsi que les user feedback. C'est un outil très appreciés des PM et des devs, permettant d'identifier
+rapidement les problèmes, mais également de retrouver tout le contexte de l'erreur (lien front/backend/micro service/queue)."#, SiSentry),
+            TechnologyEntry::new("ansible", r#"Finis les scripts bash et le crontab. Avec AWX et Ansible, l'automatisation
+de tâches devient un jeu d'enfant. J'ai proposé de remplacer notre vieux serveur d'automatisation par cet outil.
+Travailler avec des playbooks ansible nous à permis de renforcer la stabilité des jobs de backups, de mises à jours de certificats
+et de remontage en recette."#, SiAnsible),
+            TechnologyEntry::new("harbor", r#"Une des premières propositions que j'ai effecuté chez Multi-Impact est d'ajouter un
+registre d'image OCI local. Quand Docker, dans la même période, réduisait le pull d'image a 100/jours,
+nous ne pouvions pas soutenir le rythme. GoHarbor est un registre CNCF d'archive au format OCI, donc pas que les images Docker,
+mais aussi les charts Helm. Il agit comme un proxy a dockerhub, githubcr, gitlabcr et k8s registry"#, SiHarbor),
         ] }
     }
 }
