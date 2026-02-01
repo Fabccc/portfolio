@@ -28,7 +28,7 @@ C'est un outil plutôt polyvalent mais plutôt couteux à utiliser, je ne pense 
 Le fait de ne pas avoir 15 sites pour visualiser les données de 20 services est un énorme plus.
 Il est également très simple à mettre en place, et propose des fonctionnalités d'entreprise dans la version OSS"#, SiGrafana),
             TechnologyEntry::new("flux", r#"Ma démarche en tant que DevOps est d'appliquer certains principes du développement
-dans l'infrastructure. FluxCD est un bon outil pour synchroniser des ressources Kubernetes d'un dépôt git dans un cluster.
+dans l'infrastructure. FluxCD est un bon outil pour synchroniser des ressources Kubernetes d'un dépôt git dans un cluster via des ressources natives (CRDs).
 La gestion d'upgrade/downgrade devient quasi automatique."#, SiFlux),
             TechnologyEntry::new("gitlab", r#"La référence open source de la forge logicielle, je le considère même plus puissant que Github.
 La version opensource permet de faire énormement de choses. Je m'en sers pour maintenir les pipelines de linting, de tests, de déploiement via les CICD components.

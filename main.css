@@ -19,6 +19,10 @@ body {
   --font-display: "IBM Plex Mono NerdFont", "Consolas", monospace;
 }
 
+.w-84 {
+    width: calc(var(--spacing) * 84) /* 20rem = 320px */;
+}
+
 .code-scrollbar {
   scrollbar-color: var(--color-green-500) transparent;
   scrollbar-width: thin;

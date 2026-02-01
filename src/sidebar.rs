@@ -44,7 +44,7 @@ pub fn Sidebar() -> impl IntoView {
     
 
     view! {
-        <div class="flex flex-col w-80 border-l border-l-zinc-700">
+        <div class="flex flex-col w-84 border-l border-l-zinc-700">
             <div class="flex flex-col">
                 <h1 class="text-xl text-center">"Usage"</h1>
                 <div class="grid grid-cols-1 grid-rows-3 justify-center-safe">

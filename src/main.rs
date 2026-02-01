@@ -1,6 +1,8 @@
 use leptos::prelude::*;
 use reactive_stores::Store;
 
+const WORK_IN_PROGRESS: bool = false;
+
 mod bottombar;
 mod highlighter;
 mod icon;
@@ -28,6 +30,14 @@ pub fn App() -> impl IntoView {
     provide_context(Store::new(EditorState::default()));
     provide_context(Store::new(TechnologyState::default()));
 
+    if WORK_IN_PROGRESS {
+        return view!{
+            <div class="text-center text-2xl font-mono text-white h-screen content-center">
+                <p>"Work in progress..."</p>
+            </div>
+        }.into_any()
+    }
+
     view! {
         <div class="flex flex-col h-screen w-full m-0">
             <div class="flex flex-row border-b  border-b-zinc-700">
@@ -43,5 +53,5 @@ pub fn App() -> impl IntoView {
                 </div>
             </div>
         </div>
-    }
+    }.into_any()
 }
