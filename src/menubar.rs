@@ -26,7 +26,7 @@ pub fn Menubar() -> impl IntoView {
     view! {
         <div class="flex flex-row justify-between w-full items-center px-3">
             <div class="flex flex-row gap-x-8 w-full items-center">
-                <MenuItem title="CV" leading_icon=IconType::Download/>
+                <MenuItem title="CV" leading_icon=IconType::Download url="/assets/CV.pdf"/>
                 <MenuItem title="LinkedIN" url="https://www.linkedin.com/in/fabien-cayre/"/>
                 <MenuItem title="Github" url="https://github.com/Fabccc"/>
             </div>
@@ -64,7 +64,7 @@ pub fn MenuItem(
     };
     if let Some(urllink) = url {
         view!{
-            <a href=urllink class="text-2xl hover:bg-green-500 ">
+            <a href=urllink rel="external" class="text-2xl hover:bg-green-500" target="_blank">
                 {content}
             </a>
         }.into_any()

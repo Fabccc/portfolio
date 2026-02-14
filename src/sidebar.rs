@@ -2,12 +2,10 @@ use leptos::prelude::*;
 use leptos_use::use_interval_fn;
 use reactive_stores::Store;
 
-use crate::state::{cluster::{ClusterState, ClusterStateView}, technology::{Technologies, TechnologyState, TechnologyStateStoreFields}};
+use crate::state::{cluster::{ClusterState, ClusterStateView}, technology::Technologies};
 
 #[component]
 pub fn Sidebar() -> impl IntoView {
-    const CONTROL_NODE_COUNT: i32 = 3;
-    const DATA_NODE_COUNT: i32 = 6;
 
     let cluster_state = expect_context::<Store<ClusterState>>();
 
@@ -17,31 +15,6 @@ pub fn Sidebar() -> impl IntoView {
         },
         2500,
     );
-
-    let control_nodes = (0..CONTROL_NODE_COUNT)
-        .map(|n| {
-            view! {
-                <tr>
-                    <td>{format!("Control-0{}", n + 1)}</td>
-                    <td>{format!("192.168.1.{}", n + 2)}</td>
-                    <td>"13/20"</td>
-                </tr>*
-            }
-        })
-        .collect::<Vec<_>>();
-
-    let data_nodes = (0..DATA_NODE_COUNT)
-        .map(|n| {
-            view! {
-                <tr>
-                    <td>{format!("Data-0{}", n + 1)}</td>
-                    <td>{format!("192.168.2.{}", n + 1)}</td>
-                    <td>"13/20"</td>
-                </tr>
-            }
-        })
-        .collect::<Vec<_>>();
-    
 
     view! {
         <div class="flex flex-col w-84 border-l border-l-zinc-700">
