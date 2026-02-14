@@ -3,3 +3,4 @@
 /node_modules
 
 deposit_on_nginx_like_a_boss.sh
+.env
