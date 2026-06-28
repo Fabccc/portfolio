@@ -20,17 +20,17 @@ struct EditorEntry {
 impl Default for EditorState {
     fn default() -> Self {
         Self {
-            active_editor: "main.yaml".to_string(),
+            active_editor: "multi-impact.Dockerfile".to_string(),
             editors: vec![
-                EditorEntry {
-                    key: "main.yaml".to_string(),
-                    file_content: include_str!("ops/main.yaml"),
-                    lang: Some(Lang::Yaml),
-                },
                 EditorEntry {
                     key: "multi-impact.Dockerfile".to_string(),
                     file_content: include_str!("ops/multi-impact.Dockerfile"),
                     lang: Some(Lang::Dockerfile),
+                },
+                EditorEntry {
+                    key: "main.yaml".to_string(),
+                    file_content: include_str!("ops/main.yaml"),
+                    lang: Some(Lang::Yaml),
                 },
                 EditorEntry {
                     key: "self-hosted.yaml".to_string(),
